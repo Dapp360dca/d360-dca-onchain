@@ -34,11 +34,6 @@ import              Data.Aeson                      (Value(Bool))
 import qualified    Plutus.V2.Ledger.Contexts       as Api
 import              Codec.Serialise.Encoding        (Tokens(TkInteger))
 
-newtype HelloDatum = HelloDatum Integer
-PlutusTx.unstableMakeIsData ''HelloDatum
-newtype HelloRedeemer = HelloRedeemer Integer
-PlutusTx.unstableMakeIsData ''HelloRedeemer
-
 -- | Inline Datum defining DCA position locked in a validator script UTxO
 data DcaDatum = DcaDatum {
                     owner       :: Api.Address      -- ^ Owner of the DCA position UTxO. Only owner can close DCA position.
