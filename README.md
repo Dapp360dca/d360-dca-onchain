@@ -42,3 +42,8 @@ The validator must ensure that:
  - The DEX Datum is constructed correctly and the swap result will go to the owner.
  - The Change Datum back to dcaScript is constructed correctly.
  - The now() is greater then nextSwap. So the swap is allowed.
+
+## Possible vulnarabilities
+
+If there are 2 UTxOs in dcaScript for the sawe owner with the same swapAmmount, an attacher can consume both, but send only 1 to DEX.
+**Solution**: check ScriptContext for all consumed UTxOs and for N inputs ensure N correct DEX outputs.
